@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Inicio
+{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-4 ">
+    <div class="row bg-white d-flex text-center justify-content-center align-items-center" >
+        <div class="col-md-8 bg-white d-flex justify-content-center align-items-center h-100">
+            <form action="" method="post" class="mt-4 mb-4  justify-content-center align-items-center" >
+                {% csrf_token %}
+                {{form}}
+                <button class="btn btn-primary pt-2 pb-2 pl-4 pr-4  mt-4 text-center"> Enviar</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header text-left">
+                    <span>
+                        <i class="mr-2 fas fa-exclamation-triangle"></i>
+                    </span>
+                   Ayuda
+                </div>
+                <div class="card-body">
+                  <p class="small mt-2 ml-4 text-left">
+                     La funcion base de esta aplicacion es comprobar el uso de celery para las tareas asincrona en segundo planos.
+                     El formulario de arriba permite numeros entre 50 y 500 que serviran para determinar el numeros de usuarios a crear.
+                  </p>
+
+                  <p class="small ml-4 text-left ">
+                    Para iniciar el proceso ejecutamos en la terminal donde tenemos ubicado el proyecto
+                  </p>
+                  <p class="text-center font-weight-bold">
+                      celery -A core worker -l info
+                  </p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    
